@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    build: 
+      - ./backend
+    expose:
+      - 80
+    command:
+      - npm run dev
+
+      
+  frontend:
+    build: 
+      - ./frontend
+    expose:
+      - 80
+    command:
+      - npm run start
