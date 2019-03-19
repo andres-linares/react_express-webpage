@@ -1,19 +1,37 @@
 version: '3'
 
 services:
+
+
   backend:
+    container_name: scrum-u_express
     build: 
       - ./backend
     expose:
       - 80
     command:
-      - npm run dev
+      - npm run start
+    depends_on:
+      - mysql
 
-      
+
   frontend:
+    container_name: scrum-u_react
     build: 
       - ./frontend
     expose:
       - 80
     command:
       - npm run start
+    depends_on:
+      - backend
+
+
+  mysql:
+    image: mysql:8.0.15
+    container_name: scrum-u_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD: scrum-u_password
+      - MYSQL_USER: andreslinares
+      - MYSQL_PASSWORD: lavidaescorta
+      - MYSQL_DATABASE: scrum_u

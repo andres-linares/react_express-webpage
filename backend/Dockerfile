@@ -10,4 +10,4 @@ RUN NPM INSTALL
 
 COPY . /srv/app
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
